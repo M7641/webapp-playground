@@ -1,7 +1,7 @@
 # webapp-playground
 
 
-## Attempt One - nextjs-fastapi
+## Attempt One
 
 The attempt to use the nextjs-fastapi appears to be a deadend. Every working method uses the vercel severless functions.
 To be honest, it did seem like I would have to expose two ports which did not appear as though it was going to work in work.
@@ -34,7 +34,7 @@ It does seem like they need to be kept apart as the tech seems to be a bit too h
 Might be worth trying the proxy server, but just seeing how much of a pain the Dedicated API route will be the most certain solution.
 It won't be a massive pain as long as the URL does not change too much. 
 
-## Atempt Two - python-nextjs-template
+## Atempt Two
 
 My idea here is to get as close to a professional website design as possible. This should provide the most flexibility going forward.
 Therfore, the first step is to find top tier examples.
@@ -52,7 +52,7 @@ Potentially that reverse proxy is not doing much of anything and is not helping.
 
 Let's try that one next.
 
-## Attempt Three - python-nextjs-template-2
+## Attempt Three
 
 This one will be the same as the previous, but with the exception that we will be going for two images and thus removing the reverse proxy.
 
