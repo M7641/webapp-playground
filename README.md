@@ -88,3 +88,19 @@ This should cover off all the use cases.
 Actually a sixth could be Nextjs with it's backend functionality for basic web apps.
 
 https://github.com/FrancescoXX/fullstack-rust-nextjs
+
+Now working through the docker image! I have not attempted to run it locally yet.
+This is due to an env error which I can fix, but I am not in a rush to do so.
+
+## Attempt five
+
+Full stack javascript.
+
+https://github.com/FrancescoXX/fullstack-next-node-postgres
+
+Thankfully, the same person who did the rust version also did the javascript version.
+With this attempt, that covers most of it. Just need to worry about deployment now.
+
+If we are to do a sixth atempt, then that would be a different frontend. I am not seeing a need to
+do this at the moment as they all make and organise components. If I did one in svelt kit then I can't
+see it adding loads. I should however. Just to make sure there is nothing else to address.
