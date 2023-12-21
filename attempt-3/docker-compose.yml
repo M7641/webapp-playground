@@ -1,0 +1,12 @@
+services:
+    frontend:
+        build: frontend
+        restart: always
+        ports:
+            - 8080:8080
+
+    backend:
+        build: backend
+        restart: always
+        ports:
+            - 4000:4000
