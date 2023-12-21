@@ -78,3 +78,13 @@ That is another area I should learn about to at least have the awareness.
 
 Are there any other attampts to be made? If Three does not work well, then there may be an idea in using docker compse inside a docker.
 Which would be a mess, but it would be interesting and may be more transferable.
+
+## Attempt four
+
+Rust.
+
+attempt five will be something that is not nextjs, and likley a Bun banckend or some other JS backend.
+This should cover off all the use cases.
+Actually a sixth could be Nextjs with it's backend functionality for basic web apps.
+
+https://github.com/FrancescoXX/fullstack-rust-nextjs
