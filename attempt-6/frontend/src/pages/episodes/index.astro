@@ -1,0 +1,28 @@
+---
+import MainLayout from "../../components/MainLayout.astro";
+import dayjs from "dayjs";
+import GizImage from "../../components/GizImage.astro";
+
+const seasons = [1, 2, 3, 4, 5, 6, 7];
+---
+
+<MainLayout
+  title="Gizmo Girls - Episodes"
+  description="Episodes page for Gizmo Girls: A blog about the interaction between Gilmore Girls and technology."
+>
+  <main class="episodes">
+    <h1>Episodes</h1>
+
+    <div>
+      {
+        seasons.map((season) => {
+          return (
+            <div class="season">
+              <h3>Season {season}</h3>
+            </div>
+          );
+        })
+      }
+    </div>
+  </main>
+</MainLayout>

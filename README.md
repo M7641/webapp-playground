@@ -1,5 +1,7 @@
 # webapp-playground
 
+### Useful commands
+1. docker compose -f compose.yaml up
 
 ## Attempt One
 
@@ -104,3 +106,17 @@ With this attempt, that covers most of it. Just need to worry about deployment n
 If we are to do a sixth atempt, then that would be a different frontend. I am not seeing a need to
 do this at the moment as they all make and organise components. If I did one in svelt kit then I can't
 see it adding loads. I should however. Just to make sure there is nothing else to address.
+
+## Attempt Six
+
+Astro frontend with a python backend.
+
+Astro as it allows for any type of component, be it react, vue, or svelt. 
+
+it's loosely working. The API is not working exactly, but all in all it is close.
+And to be honest, it's not that big of a deal. Also, Astro does not have a good DX.
+It's not really working with VS Code. 
+
+The amount of front ends is a complete mess. I think it's one of those times we
+go with the most popular. Or, we go for the most exessive. Quik would be good.
+Maybe we should do a Single Page App as another example.
