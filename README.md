@@ -3,6 +3,9 @@
 ### Useful commands
 1. docker compose -f compose.yaml up
 
+
+docker compose -f docker-compose.yml up
+
 ## Attempt One
 
 The attempt to use the nextjs-fastapi appears to be a deadend. Every working method uses the vercel severless functions.
@@ -120,3 +123,23 @@ It's not really working with VS Code.
 The amount of front ends is a complete mess. I think it's one of those times we
 go with the most popular. Or, we go for the most exessive. Quik would be good.
 Maybe we should do a Single Page App as another example.
+
+## Attempt Seven
+
+Basic React with FastAPI. Will be good example of a basic app that might end up being the best choice in many situations.
+
+Plus the example I got hold of appears to be rather extensive.
+https://github.com/equinor/template-fastapi-react
+A bit too extensive as it had authentication and plenty of other stuff.
+Made it a bit too overwhelming for now.
+
+This is the next one I will try:
+https://github.com/jonasrenault/fastapi-react-mongodb-docker.git
+
+There we go!
+
+It is also reasonably exessive. The final step now is to actually pull together a few tamplates.
+Attempt seven will be one. What ever the simple fast api and next js is, then finally the rust one.
+
+I may just go ahead and apply it all first though in an actual app before we template anything.
+Thus, start with the Medis with a nextjs front end and a fastapi backend.
