@@ -1,5 +1,7 @@
 # Attempt 8 - FastAPI with htmx
 
+[Original source](https://github.com/AutomationPanda/bulldoggy-reminders-app/blob/main/README.md)
+
 ![Bulldoggy Logo](static/img/logos/bulldoggy-100px.png)
 
 # Bulldoggy: The Reminders App
