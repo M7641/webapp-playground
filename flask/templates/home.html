@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>This is the home page</h1>
+    <button onclick="window.location.href='/user/YouClickedAButton'">go some where else</button>
+    <button onclick="changeColour(this);" style="background-color: red;">change my colour</button>
+    <button onclick="sendAPayload();">Send a pay load to another route</button>
+    <input type="text" id="name" name="name" placeholder="Enter your name">
+</div>
+
+<script>
+    function changeColour(object) {
+        if (object.style.backgroundColor === 'red') {
+            object.style.backgroundColor = 'white';
+            return;
+        } else if (object.style.backgroundColor === 'white') {
+            object.style.backgroundColor = 'red';
+            return;
+        }
+    };
+
+    function sendAPayload() {
+        nameToSend = document.getElementById('name').value;
+        fetch('/takeAPayload', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"name": nameToSend})
+        })
+        .then(response => {
+            window.location.href = response.url;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    };
+</script>
