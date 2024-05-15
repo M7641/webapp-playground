@@ -306,18 +306,31 @@ Plenty to refine here, but VScode has picked up on it at least and it is pointin
 
 ## 5 - What next?
 
-Ideas:
-
 1. Testing - Jest/ vitest
 2. State management (Redux/Recoil)
 3. Prettier
-4. Husky
-5. tailwindcss
-6. Querying, why not just use fetch? <- more of a server thing to be fair.
+4. tailwindcss
+5. Querying, why not just use fetch? <- more of a server thing to be fair.
 
 
 ### Husky
 
+It's pre-commit, but for JavaScript.
+
 ```sh
 npm install --save-dev husky
 ```
+
+Given my `.git` Is rather high up in the directory structure I had to get creative. First, I changed the prepare script to:
+
+```json
+"prepare": "cd ../.. && husky full_app/frontend/.husky"
+```
+
+Then I also had to edit the hooks in `.husky/pre-commit` to work properly. For example, this worked
+
+```sh
+npm run lint --prefix full_app/frontend
+```
+
+All a bit awkward, but it is the type of thing you do once and then it should just always work. There are no pre-made hooks for you in this case really, you just add commands you want to run on each commit in the `.husky/pre-commit` file.
