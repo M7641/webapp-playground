@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint_fix": "eslint . --fix",
-    "prepare": "husky"
+    "prepare": "cd ../.. && husky full_app/frontend/.husky"
   },
   "dependencies": {
     "react": "^18.3.1",
