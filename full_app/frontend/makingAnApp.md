@@ -116,22 +116,22 @@ Then creating a file called `babel.config.json` with the following:
 
 ```json
 {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "edge": "17",
-            "firefox": "60",
-            "chrome": "67",
-            "safari": "11.1"
-          },
-          "useBuiltIns": "usage",
-          "corejs": "3.6.5"
-        }
-      ]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "edge": "17",
+          "firefox": "60",
+          "chrome": "67",
+          "safari": "11.1"
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.6.5"
+      }
     ]
-  }
+  ]
+}
 ```
 
 What is babel? The story of "The Library of Babel" develops the idea of a infinite library with every single permutation of book possible. In that spirit, babel will convert the TS/JS we write into code that will run on the specified targets. JS has added a number of features over the years and common syntax today won't work on older browsers, babel lets us stay on the bleeding edge whilst maintaining the ability to run on older browsers.
@@ -153,8 +153,8 @@ Well that was a pain.
 Without NextJS it is a complete pain. What is working locally, at least, is that I had to make a server directory that was starting an Express server. I ended up creating CORS errors when trying to fetch from it. This bit was solved by having the following `vite.config.ts`
 
 ```ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -312,7 +312,6 @@ Plenty to refine here, but VScode has picked up on it at least and it is pointin
 4. tailwindcss
 5. Querying, why not just use fetch? <- more of a server thing to be fair.
 
-
 ### Husky
 
 It's pre-commit, but for JavaScript.
@@ -334,3 +333,31 @@ npm run lint --prefix full_app/frontend
 ```
 
 All a bit awkward, but it is the type of thing you do once and then it should just always work. There are no pre-made hooks for you in this case really, you just add commands you want to run on each commit in the `.husky/pre-commit` file.
+
+### Prettier
+
+It's Black, but for JS.
+
+```sh
+npm install --save-dev --save-exact prettier
+```
+
+You then need two config scripts:
+
+```sh
+touch .prettierrc & touch .prettierignore
+```
+
+`.prettierrc` is left empty rather bizarrely, but it's required to inform other tools that prettier is here and wants to do stuff. `.prettierignore` is naturally the files not to change.
+
+To then run prettier do the following
+
+```sh
+npx prettier . --write
+```
+
+To add to husky, I have done it as another script, although prettier has done something else that will only prettier the staged files. I expect I will run it on everything.
+
+```json
+"prettier": "prettier . --write --ignore-unknown"
+```
