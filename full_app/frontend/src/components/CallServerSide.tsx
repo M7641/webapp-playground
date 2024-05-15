@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 
-function ServerSideComponent() {
+function CallServerSide() {
 
     const [someText, setData] = useState("");
 
@@ -16,4 +16,4 @@ function ServerSideComponent() {
     return (someText);
 }
 
-export default ServerSideComponent;
+export default CallServerSide;

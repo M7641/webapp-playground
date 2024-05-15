@@ -1,13 +1,13 @@
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import ClientSideComponent from "./components/ClientSide";
-import ServerSideComponent from "./components/ServerSide";
+import CallServerSide from "./components/CallServerSide";
 
 function App() {
   return (
     <>
       <div>
           <ClientSideComponent />
-          <ServerSideComponent />
+          <CallServerSide />
       </div>
       <BrowserRouter>
       <div>
