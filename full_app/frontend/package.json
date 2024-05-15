@@ -14,7 +14,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npm run prettier --prefix full_app/frontend"
+      "npm run prettier --prefix full_app/frontend",
+      "npm run lint --prefix full_app/frontend"
     ]
   },
   "dependencies": {
