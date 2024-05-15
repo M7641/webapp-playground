@@ -12,6 +12,12 @@
     "prepare": "cd ../.. && husky full_app/frontend/.husky",
     "prettier": "prettier . --write --ignore-unknown"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
