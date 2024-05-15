@@ -5,7 +5,7 @@ const app: express.Application = express();
 
 app.get(
     "/api/something",
-    (req: express.Request, res: express.Response) => res.send(
+    (_req: express.Request, res: express.Response) => res.send(
         JSON.stringify({"message": "Hello World!"})
     ),
 );

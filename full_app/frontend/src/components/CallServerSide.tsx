@@ -9,8 +9,7 @@ function CallServerSide() {
         fetch('api/something')
             .then((res) => res.text())
             .then((data) => JSON.parse(data))
-            .then((data) => setData(data.message))
-            .catch((err) => console.log(err));
+            .then((data) => setData(data.message));
     });
 
     return (someText);

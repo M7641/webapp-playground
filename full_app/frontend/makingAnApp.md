@@ -136,6 +136,8 @@ Then creating a file called `babel.config.json` with the following:
 
 What is babel? The story of "The Library of Babel" develops the idea of a infinite library with every single permutation of book possible. In that spirit, babel will convert the TS/JS we write into code that will run on the specified targets. JS has added a number of features over the years and common syntax today won't work on older browsers, babel lets us stay on the bleeding edge whilst maintaining the ability to run on older browsers.
 
+Babel has caused a fair amount of confusion as I was struggling to see what it was doing and if it was actually working. Turns out, Vite was already doing this for us. If you see this [readme](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) you will see how you can alter babel's behavior in the Vite config.
+
 ### In the future
 
 Things are largely working now. When doing this in the future, you are better off using the templates for these things given there are a lot of boilerplate to have set up. To create an app from a template you may doing something as follows:
@@ -238,4 +240,84 @@ COPY --from=node-build \
     /app/dist/
 
 CMD ["/app/rest-server"]
+```
+
+## 3 - How do I actually run it then?
+
+Given the lack of `npm run start` it is worth being explicit on how this can be ran.
+
+The three scripts provided were:
+
+```json
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+```
+
+`npm run dev` will start the local debugging server, `npm run build` will actually build the application into the `dist/` directory, and finally it is the `npm run preview` which will run that build application.
+
+When I get around to building a docker for this the command in the `run.sh` will be `npm run preview`.
+
+For completion, the `run.sh` that worked was:
+
+```sh
+npm run build & wait
+
+trap 'kill 0' SIGINT; npm run preview & npm run serve & wait
+```
+
+However, I would build the app in a previous docker layer and then copy over dist into a scratch layer.
+
+### Thoughts on repo architecture
+
+The `server.ts` file ended up being distinct from the frontend. In order to handle more complexity, I will now move this repo to be structured like all the attempts in this repo. So we will have the two distinct folders of `frontend/` and `backend/`. The top level will have the dockerfile and the run.sh script.
+
+Therefore, the run.sh has changed again:
+
+```sh
+#!/bin/bash
+
+npm run build --prefix frontend & wait
+
+trap 'kill 0' SIGINT; npm run preview --prefix frontend  & npm run serve --prefix backend & wait
+```
+
+the `--prefix` flag was a bit of a oddity. Any backslashes meant it could not find the subsequent files.
+
+If I decide to use a different backend, which I naturally will, then of course that second command to start the server will change.
+
+## 4 - Linting
+
+The next topic I want to work out for this is linting. Given the previous experience with Babel already working without me knowing, I will start with the idea that it's already linting. The provided tsconfig.ts does have a section for linting after all, but let us get into it either way.
+
+It seems like we do need to set up ESlint manually, but we can then add it as a plugin for Vite.
+
+```sh
+npm i eslint vite-plugin-eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
+```
+
+Then we made the `.eslintrc` file with the configuration options.
+
+The steps from here are not overly clear. We can add it to the scripts which I have done in this project. It will also prevent building if any of the rules are broken as well. There is a fix flag which I have enabled, but I am not sure if it has done anything yet.
+
+Plenty to refine here, but VScode has picked up on it at least and it is pointing out issues as we go so I think this is in a good place.
+
+## 5 - What next?
+
+Ideas:
+
+1. Testing - Jest/ vitest
+2. State management (Redux/Recoil)
+3. Prettier
+4. Husky
+5. tailwindcss
+6. Querying, why not just use fetch? <- more of a server thing to be fair.
+
+
+### Husky
+
+```sh
+npm install --save-dev husky
 ```
