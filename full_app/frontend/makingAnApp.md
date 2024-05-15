@@ -308,9 +308,8 @@ Plenty to refine here, but VScode has picked up on it at least and it is pointin
 
 1. Testing - Jest/ vitest
 2. State management (Redux/Recoil)
-3. Prettier
-4. tailwindcss
-5. Querying, why not just use fetch? <- more of a server thing to be fair.
+3. tailwindcss
+4. Querying, why not just use fetch? <- more of a server thing to be fair.
 
 ### Husky
 
@@ -361,3 +360,33 @@ To add to husky, I have done it as another script, although prettier has done so
 ```json
 "prettier": "prettier . --write --ignore-unknown"
 ```
+
+### lint-staged
+
+Husky was part one of this, that allows for scripts to be ran on git actions.
+
+lint-staged goes a bit further and then allows us to run commands on the staged code only.
+
+This way, we don't have to run loads of commands on code that has not changed. In this spirit, I have rolled up both eslint and prettier into lint-staged, which is then ran by Husky as follows.
+
+1. `npm install --save-dev lint-staged`
+2. Change `.husky/pre-commit` to just
+
+```sh
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+npx lint-staged
+```
+
+3. Add the scripts you want to run on staged files in the package.json as follows
+
+```json
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run prettier --prefix full_app/frontend",
+      "npm run lint --prefix full_app/frontend"
+    ]
+  },
+```
+
+Naturally, if you wanted a program to run on everything each time, then you can add that back into the `.husky/pre-commit` file. If you wanted to emulate what pre-commit does but with --all-files parameter then probably best making a custom script in the `"scripts"` section of the `package.json`.
