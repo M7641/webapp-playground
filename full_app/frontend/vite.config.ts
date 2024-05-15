@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 // @ts-expect-error Not able to find types for vite-plugin-eslint
@@ -21,4 +22,7 @@ export default defineConfig({
       exclude: ["node_modules", "dist", "build", "public"],
     }),
   ],
+  test: {
+    exclude: ["node_modules"],
+  },
 });

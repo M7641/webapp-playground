@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "lint_fix": "eslint . --fix",
     "prepare": "cd ../.. && husky full_app/frontend/.husky",
-    "prettier": "prettier . --write --ignore-unknown"
+    "prettier": "prettier . --write --ignore-unknown",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -33,10 +35,12 @@
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "3.2.5",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite-plugin-eslint": "^1.8.1",
+    "vitest": "^1.6.0"
   }
 }

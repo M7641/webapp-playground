@@ -306,10 +306,9 @@ Plenty to refine here, but VScode has picked up on it at least and it is pointin
 
 ## 5 - What next?
 
-1. Testing - Jest/ vitest
-2. State management (Redux/Recoil)
-3. tailwindcss
-4. Querying, why not just use fetch? <- more of a server thing to be fair.
+1. State management (Redux/Recoil)
+2. tailwindcss
+3. Querying, why not just use fetch? <- more of a server thing to be fair.
 
 ### Husky
 
@@ -390,3 +389,25 @@ npx lint-staged
 ```
 
 Naturally, if you wanted a program to run on everything each time, then you can add that back into the `.husky/pre-commit` file. If you wanted to emulate what pre-commit does but with --all-files parameter then probably best making a custom script in the `"scripts"` section of the `package.json`.
+
+### Testing - Vitest
+
+[Documentation](https://vitest.dev/guide/)
+
+```sh
+npm i vitest --save-dev
+```
+
+From there it is as you would mostly expect. I have mimicked what I would do in Python. That being there is a test directory in the top level which imports active code from src.
+
+The test files need to have the extension `.test.ts` to work.
+
+Finally, given that I have used Vitest and not Jest, the config can be altered in the `test` key in the `vite.config.ts` file.
+
+The one bit I will add extra context on was I had to add `/// <reference types="vitest" />` to the top of the file in order for the `test` key to be recognized. Further information on that [here](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html).
+
+A fun extra I subsequently found was you can install `@vitest/coverage-v8` and then run `npm run test:coverage` which will run `vitest --coverage`. This gives a cool visual on what code is actually being covered by tests.
+
+Testing is a beast of a topic and there are many things you can do with this library and it links to several other tools that you can take advantage of. For now, we have established a starting place. The next step is how I would test components them selves.
+
+### TailwindCSS
