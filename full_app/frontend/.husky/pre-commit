@@ -1,2 +1,3 @@
 npm run lint --prefix full_app/frontend
 # npm run prettier --prefix full_app/frontend
+npx lint-staged
