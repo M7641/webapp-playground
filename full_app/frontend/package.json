@@ -13,9 +13,8 @@
     "prettier": "prettier . --write --ignore-unknown"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "*.{js,jsx,ts,tsx}": [
+      "npm run prettier --prefix full_app/frontend"
     ]
   },
   "dependencies": {
