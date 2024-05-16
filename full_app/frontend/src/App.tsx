@@ -13,11 +13,17 @@ function App() {
         <div>
           <header>
             <div>
-              <Link to="/">Home</Link>
+              <Link to="/" className="font-bold underline">
+                Home
+              </Link>
               <div style={{ height: "20px" }}></div>
-              <Link to="/about">About</Link>
+              <Link to="/about" className="font-bold underline">
+                About
+              </Link>
               <div style={{ height: "20px" }}></div>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" className="font-bold underline">
+                Contact
+              </Link>
             </div>
           </header>
           <section>

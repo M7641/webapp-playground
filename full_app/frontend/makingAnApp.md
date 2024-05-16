@@ -288,7 +288,9 @@ the `--prefix` flag was a bit of a oddity. Any backslashes meant it could not fi
 
 If I decide to use a different backend, which I naturally will, then of course that second command to start the server will change.
 
-## 4 - Linting
+## 4 - Generic Tooling
+
+### ESlint
 
 The next topic I want to work out for this is linting. Given the previous experience with Babel already working without me knowing, I will start with the idea that it's already linting. The provided tsconfig.ts does have a section for linting after all, but let us get into it either way.
 
@@ -303,12 +305,6 @@ Then we made the `.eslintrc` file with the configuration options.
 The steps from here are not overly clear. We can add it to the scripts which I have done in this project. It will also prevent building if any of the rules are broken as well. There is a fix flag which I have enabled, but I am not sure if it has done anything yet.
 
 Plenty to refine here, but VScode has picked up on it at least and it is pointing out issues as we go so I think this is in a good place.
-
-## 5 - What next?
-
-1. State management (Redux/Recoil)
-2. tailwindcss
-3. Querying, why not just use fetch? <- more of a server thing to be fair.
 
 ### Husky
 
@@ -410,4 +406,87 @@ A fun extra I subsequently found was you can install `@vitest/coverage-v8` and t
 
 Testing is a beast of a topic and there are many things you can do with this library and it links to several other tools that you can take advantage of. For now, we have established a starting place. The next step is how I would test components them selves.
 
+I ended up having to rely on `https://vitest.dev/api/` and installing and using
+
+```sh
+npm i -D "@testing-library/react"
+```
+
+Example included in `tests/components/`.
+
+Other testing libraries:
+
+1. Cypress
+2. Jest
+3. HappyDom
+4. JSdom
+
+As per usual, there are far too many options which has made this a bit of a challenge to sort through. The one downside with the UI testing I have here is that it's react only. Cypress would be more versatile, but honestly a deeper dive is needed to find which would suit me best.
+
+Also a point worth stressing, there are tools for testing typescript code, and tools for testing the DOM. They are not the same thing, hence why a solid combination of tools is likely the end goal.
+
 ### TailwindCSS
+
+People don't like CSS. Turns out I am not the only one who struggles to get it to work out. TailwindCSS effectively adds a bunch of classes that you can use as your defaults rather than trying to do everything on your own.
+
+Installing:
+
+1. installing and initializing:
+
+```sh
+npm i -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+2. Altering the `tailwind.config.js` file to
+
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+3. Adding the following to a `src/styles/index.css` file
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+4. Finally, make sure the index.html includes the CSS made by tailwind by adding the following to the head.
+
+```html
+<link rel="stylesheet" href="src/styles/index.css" />
+```
+
+## Others
+
+These were two points I had in the tooling section.
+
+1. State management (Redux/Recoil)
+2. Querying, why not just use fetch?
+
+However, these are concepts that need a lot more work in react to actually get a proper handle on. The prop system first needs to be learnt in order to appreciate why State management tools are useful, and I need to actually understand the fetch command from JS to understand why there are many other querying tools that have sprung up.
+
+The tooling is largely in place now.
+
+We have:
+
+1. CSS tooling to make life easier to style.
+2. Linting twice over in both prettier and eslint. Prettier is for styling, ESlinter will identify problems.
+3. Husky/pre-commit hooks.
+4. Babel through Vite.
+5. Testing through Vitest.
+
+So we have clean code, following sensible conventions, backwards compatibility, and the tools to add robustness through testing.
+
+From here on in, it's more learning how to do good react and TS which is a completely different set of questions and research so not something to be covered here. Plus, I could do with a break from this now, I may jump over to the server side and start to lay down the architecture of Python -> A compiled language where we can move ONNX models across.
