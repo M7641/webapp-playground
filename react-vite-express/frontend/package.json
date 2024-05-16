@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint_fix": "eslint . --fix",
-    "prepare": "cd ../.. && husky full_app/frontend/.husky",
+    "prepare": "cd ../.. && husky react-vite-express/frontend/.husky",
     "prettier": "prettier . --write --ignore-unknown",
     "test": "vitest --root tests/",
     "test:coverage": "vitest --coverage",
@@ -17,8 +17,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npm run prettier --prefix full_app/frontend",
-      "npm run lint --prefix full_app/frontend"
+      "npm run prettier --prefix react-vite-express/frontend",
+      "npm run lint --prefix react-vite-express/frontend"
     ]
   },
   "dependencies": {
