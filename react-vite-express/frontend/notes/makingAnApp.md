@@ -443,15 +443,12 @@ npx tailwindcss init -p
 ```js
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
 3. Adding the following to a `src/styles/index.css` file
@@ -472,7 +469,7 @@ export default {
 
 These were two points I had in the tooling section.
 
-1. State management (Redux/Recoil)
+1. State management ([Redux](https://redux.js.org/introduction/getting-started)/[Recoil](https://recoiljs.org/docs/introduction/motivation)) 
 2. Querying, why not just use fetch?
 
 However, these are concepts that need a lot more work in react to actually get a proper handle on. The prop system first needs to be learnt in order to appreciate why State management tools are useful, and I need to actually understand the fetch command from JS to understand why there are many other querying tools that have sprung up.

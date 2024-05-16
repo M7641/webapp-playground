@@ -1,8 +1,0 @@
-node_modules
-.vscode
-out
-.next
-__pycache__
-grass.db
-postgres_data
-.env
