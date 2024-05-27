@@ -1,0 +1,3 @@
+# Readme 
+
+I am going to try follow the book "Zero to production in Rust - An introduction to backend development". Hence why the choice ended up being Actix rather than Axum, as that is what they ended up going with. My primary aim is to just get a really good handle on Rust here though, and in the process look to marry up a Rust backend with a React front end. Eventually a bit of ONNX will go into all of this, in both of those two locations. The final test being, can I get this all to run in a single dockerfile that can then be hosted on the cloud. I am aware that two instances would make more sense, but I want to try it in work so that is the main constraint to work with.
