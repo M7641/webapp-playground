@@ -88,7 +88,7 @@ export default DataFetchingComponent;
 
 This example does show how a lot of boiler plate has been abstracted away. It is also worth saying that TanStack can do a lot more than just the fetch API could. I do certainly prefer the second variant here, but I should be able to do both.
 
-Either way, the main answer to my initial questions is that the libraries take the core `fetch` API and wrap it up in ways that make various features easier to do. 
+Either way, the main answer to my initial questions is that the libraries take the core `fetch` API and wrap it up in ways that make various features easier to do.
 
 ### GraphQl
 
@@ -106,4 +106,3 @@ Just to add some further context the list of popular API protocols are:
 4. JavaScript Object Notation-Remote Procedure Call (JSON-RPC)
 5. Graph Query Language (GraphQL)
 6. Apache Thrift.
-
